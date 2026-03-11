@@ -1,0 +1,13 @@
+@baseURL = http://localhost:8899
+
+###Login
+POST {{baseURL}}/api/auth/login
+Content-Type: application/json
+
+{
+    "identity": "peach@gmail.com",
+    "password": "123456"
+}
+
+### POST message
+POST {{baseURL}}/api/post
