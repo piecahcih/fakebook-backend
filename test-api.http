@@ -11,3 +11,13 @@ Content-Type: application/json
 
 ### POST message
 POST {{baseURL}}/api/post
+
+
+
+
+
+###test notfound
+GET {{baseURL}}/maijerja
+
+###test error
+GET {{baseURL}}/api/auth/me
