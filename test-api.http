@@ -1,21 +1,52 @@
 @baseURL = http://localhost:8899
 
-###Login
+### Login
 POST {{baseURL}}/api/auth/login
 Content-Type: application/json
 
 {
-    "identity": "peach@gmail.com",
+    "identity": "andy@ggg.mail",
     "password": "123456"
 }
 
 ### POST message
 POST {{baseURL}}/api/post
 
+### Register api
+POST {{baseURL}}/api/auth/register 
+content-type: application/json
+
+{
+#  "identity" : "Uwisdoa",
+#  "identity" : "andy@ggg.mail",
+#  "identity" : "1234567890",
+ "identity" : "peach@gmail.com",
+ "firstName" : "peach",
+ "lastName" : "codecamp",
+ "password" : "123456",
+ "confirmPassword" : "123456"
+}
+
+### GET me
+GET {{baseURL}}/api/auth/me
+# Authorization: Bearer peach
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzczMzcyMjIxLCJleHAiOjE3NzUxMDAyMjF9.u39xnX9z78XObxAwJbjOQRt1_tVZg9c5J4WyEzUeByk
+# Meme: 67
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+######################################################
 ###test notfound
 GET {{baseURL}}/maijerja
 
