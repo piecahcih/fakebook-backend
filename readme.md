@@ -10,17 +10,17 @@ JWT_SECRET=
 ### Service
 
 |path |method |authen |params |query |body |
-|:- |:- |:- |:- |:- |:- 
-|/api/auth/login |post |- |- |- |{identity, password}
-|/api/auth/register |post |- |- |- | {identity, firstName, lastName, password, confirmPassword}
+|:-- |:-- |:-- |:-- |:-- |:-- |
+|/api/auth/login|post|-|-|-| {identity, password}
+|/api/auth/register|post|-|-|-| {identity, firstName, lastName, password, confirmPassword}
 |/api/auth/me|get|y|-|-|-|
 |/api/post|get|y|-|-|-|
 |/api/post|post|y|-|-|{message, image(file)}
-|/api/post|put|y|:id|-|{message, image(file)}
-|/api/post|delete|y|:id|-|-
-|/api/comment|post|y|-|-|{message, postId}
-|/api/like|post|y|-|-|{postId}
-|/api/like|delete|y|:id|-|-
+|/api/post/:id|put|y|id|-|{message, image(file)}
+|/api/post/:id|delete|y|id|-|-
+|/api/post/:id/comment|post|y|id|-|{message}
+|/api/post/:id/like|post|y|id|-|
+|/api/post/:id/like|delete|y|id|-|-
 
 
 ---

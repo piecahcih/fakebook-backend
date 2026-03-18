@@ -32,14 +32,15 @@ model User {
 }
 
 model Post {
-  id        Int      @id @default(autoincrement())
-  message   String?  @db.Text
+  id        Int       @id @default(autoincrement())
+  message   String?   @db.Text
   image     String?
-  createdAt DateTime @default(now()) @db.Timestamp(0)
-  updatedAt DateTime @updatedAt @db.Timestamp(0)
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt DateTime  @updatedAt @db.Timestamp(0)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    Int
   likes     Like[]
+  comments  Comment[]
 }
 
 model Comment {
@@ -49,6 +50,8 @@ model Comment {
   updatedAt DateTime @updatedAt @db.Timestamp(0)
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    Int
+  post      Post?    @relation(fields: [postId], references: [id])
+  postId    Int?
 }
 
 model Like {
@@ -71,8 +74,8 @@ model Relationship {
   status     RelationshipStatus @default(PENDING)
   createdAt  DateTime           @default(now()) @db.Timestamp(0)
   updatedAt  DateTime           @updatedAt @db.Timestamp(0)
-  sender     User               @relation(fields: [senderId], references: [id], name:"sender", onDelete: Cascade)
+  sender     User               @relation(fields: [senderId], references: [id], name: "sender", onDelete: Cascade)
   senderId   Int
-  receiver   User               @relation(fields: [receiverId], references: [id], name:"receiver", onDelete: Cascade)
+  receiver   User               @relation(fields: [receiverId], references: [id], name: "receiver", onDelete: Cascade)
   receiverId Int
 }

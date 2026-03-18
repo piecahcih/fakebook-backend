@@ -22,6 +22,9 @@ export default async function authenticate(req,res,next){
     const foundUser = await prisma.user.findUnique({
         where: { id: payload.id}
     })
+    if(!foundUser) {
+        return next(createHttpError[401]('Unauthorized 3'))
+    }
     // console.log(foundUser)
     // const foundUser = await getUserBy('id', payload.id)
     // if(!foundUser) {

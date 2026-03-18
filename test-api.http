@@ -1,16 +1,51 @@
 @baseURL = http://localhost:8899
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNzczODI2MjA5LCJleHAiOjE3NzU1NTQyMDl9.QJ1TSFayb1rTUR5rzj2qgiKkav7iM_Zu2ddlBbNp9ls
+
 
 ### Login
 POST {{baseURL}}/api/auth/login
 Content-Type: application/json
 
 {
-    "identity": "andy@ggg.mail",
+    "identity": "monchi@chi.chi",
     "password": "123456"
 }
 
+# {
+#     "identity": "cat@gg.com",
+#     "password": "catcat"
+# }
+
 ### POST message
 POST {{baseURL}}/api/post
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "message": "helloja"
+}
+
+
+###GET
+GET {{baseURL}}/api/post
+Authorization: Bearer {{token}}
+
+
+###Update
+PUT {{baseURL}}/api/post/21
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "message": "i luv u naa<3",
+    "image": "https://i.pinimg.com/736x/a4/f0/fb/a4f0fb9370fd72de93423e5b997c0b16.jpg"
+}
+
+
+###DELETE
+DELETE {{baseURL}}/api/post/7
+Authorization: Bearer {{token}}
+
 
 ### Register api
 POST {{baseURL}}/api/auth/register 
@@ -27,10 +62,11 @@ content-type: application/json
  "confirmPassword" : "123456"
 }
 
+
 ### GET me
 GET {{baseURL}}/api/auth/me
 # Authorization: Bearer peach
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzczMzcyMjIxLCJleHAiOjE3NzUxMDAyMjF9.u39xnX9z78XObxAwJbjOQRt1_tVZg9c5J4WyEzUeByk
+Authorization: Bearer {{token}}
 # Meme: 67
 
 

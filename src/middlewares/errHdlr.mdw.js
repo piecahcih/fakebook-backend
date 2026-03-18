@@ -14,6 +14,6 @@ export function errHdlrMDW (err,req,res,next){
     res.status(err.status || 500)
     res.json({
         status: err.status || 500,
-        meassage: err.message || 'Internal Server Error'
+        message: err.message || 'Internal Server Error'
     })
 }
